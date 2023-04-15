@@ -62,7 +62,7 @@ extension OpenAIEndpoint: Endpoint {
 	var baseURL: String {
 		switch self {
 		default:
-			return "https://api.openai.com"
+			return "https://apiv1.chatdefender.com"
 		}
 	}
 

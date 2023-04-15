@@ -105,11 +105,23 @@ public enum AIMessageRole: String, Codable {
 
 public struct AIMessage: Codable {
 	public let role: AIMessageRole
-	public let content: String
-
-	public init(role: AIMessageRole, content: String) {
+	public let content: String?
+    public let cdContent: CDMessage?
+    
+    /// Creates a new chat message with a given role and content.
+    /// - Parameters:
+    ///   - role: The role of the sender of the message.
+    ///   - cdContent: values for your ChatDefender message
+    public init(role: AIMessageRole, cdContent: CDMessage) {
+        self.role = role
+        self.content = nil
+        self.cdContent = cdContent
+    }
+    
+	internal init(role: AIMessageRole, content: String) {
 		self.role = role
 		self.content = content
+        self.cdContent = nil
 	}
 }
 
